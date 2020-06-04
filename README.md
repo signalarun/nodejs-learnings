@@ -1,4 +1,4 @@
-# nodejs-learnings
+# NODE.JS LEARNINGS
 Learnings and sample applications on nodejs
 
 ## Useful libraries
