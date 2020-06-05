@@ -8,3 +8,4 @@ Learnings and sample applications on nodejs
 * express-generator
   - Produces boilerplate code for an application
   - npm install express-generator -g
+  - express <project_name>
