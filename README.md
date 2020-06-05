@@ -5,3 +5,6 @@ Learnings and sample applications on nodejs
 * nodemon
   - Restart application as file changes
   - npm i nodemon -g
+* express-generator
+  - Produces boilerplate code for an application
+  - npm install express-generator -g
