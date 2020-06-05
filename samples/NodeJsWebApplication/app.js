@@ -18,7 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
-app.user(layouts);
+app.use(layouts);
 
 app.use(logger('dev')); // Activates loging
 app.use(express.json()); // For analysing request data
