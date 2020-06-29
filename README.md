@@ -52,3 +52,11 @@ Learnings and sample applications on nodejs
     npm whoami: Displays details of your public NPM profile (you must create an account using the previous command).
 
     npm publish: Publishes a module to npmjs.org (it’s necessary to have an active account first ).
+    
+## Middleware  
+   * Middleware functions can perform the following tasks:
+     - Execute any code.
+     - Make changes to the request and the response objects.
+     - End the request-response cycle.
+     - Call the next middleware function in the stack.
+
