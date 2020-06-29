@@ -65,6 +65,7 @@ Learnings and sample applications on nodejs
      - express.json parses incoming requests with JSON payloads. NOTE: Available with Express 4.16.0+
      - express.urlencoded parses incoming requests with URL-encoded payloads. NOTE: Available with Express 4.16.0+
      - Application level middleware app.use
-     - Router level middleware router.use
+     - Router level middleware router.use     
+       + Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of express.Router()
 
 
