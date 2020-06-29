@@ -5,7 +5,8 @@ Learnings and sample applications on nodejs
 * nodemon
   - Restart application as file changes
   - npm i nodemon -g or  ​​npm​​ ​​install​​ ​​--save​​ ​​--save-exact​​ ​​nodemon@1.11.0​
-  - ` "scripts" : {
+  - Placing below code overrides default start  
+      ` "scripts" : {
        "start" : "nodemon server.js" ,
        "test" :  "echo   \"  Error: no test specified  \"   && exit 1" 
        },`
