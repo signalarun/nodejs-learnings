@@ -11,7 +11,6 @@ Learnings and sample applications on nodejs
        "test" :  "echo   \"  Error: no test specified  \"   && exit 1" 
        },`
    - restart with ` npm start`
-   - 
 
 * express-generator
   - Produces boilerplate code for an application
