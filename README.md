@@ -5,11 +5,13 @@ Learnings and sample applications on nodejs
 * nodemon
   - Restart application as file changes
   - npm i nodemon -g or  ​​npm​​ ​​install​​ ​​--save​​ ​​--save-exact​​ ​​nodemon@1.11.0​
-  - Placing below code overrides default start  
+  - Placing below code in package.json which overrides default start  
       ` "scripts" : {
        "start" : "nodemon server.js" ,
        "test" :  "echo   \"  Error: no test specified  \"   && exit 1" 
        },`
+   - restart with ` npm start`
+   - 
 
 * express-generator
   - Produces boilerplate code for an application
