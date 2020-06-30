@@ -1,7 +1,7 @@
 # NODE.JS LEARNINGS
 Learnings and sample applications on nodejs. Repository is being tried to, build on [The Twelve-Factor App methodology](https://12factor.net/).
 
-# Developement environment configuration and tools
+## Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
     - “EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.”
     - Sample
