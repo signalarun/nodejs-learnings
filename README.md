@@ -1,7 +1,7 @@
 # NODE.JS LEARNINGS
 Learnings and sample applications on nodejs. Repository is being tried to, build on [The Twelve-Factor App methodology](https://12factor.net/).
 
-# Developement environment configuration
+# Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
     - “EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.”
     - Sample
@@ -14,6 +14,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
          trim_trailing_whitespace = false
          insert_final_newline = true
        ```
+   * [npm semver calculator](https://semver.npmjs.com/)
 
 ## Useful libraries
 * nodemon
