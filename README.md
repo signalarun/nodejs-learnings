@@ -1,5 +1,5 @@
 # NODE.JS LEARNINGS
-Learnings and sample applications on nodejs. Repository is being tried to built on [The Twelve-Factor App methodology](https://12factor.net/).
+Learnings and sample applications on nodejs. Repository is being tried to, build on [The Twelve-Factor App methodology](https://12factor.net/).
 
 # Developement environment configuration
  * [EditorConfig](https://editorconfig.org/)  
