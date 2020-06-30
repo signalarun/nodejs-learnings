@@ -1,6 +1,20 @@
 # NODE.JS LEARNINGS
 Learnings and sample applications on nodejs
 
+# Developement environment configuration
+ * [EditorConfig](https://editorconfig.org/)  
+    - “EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.”
+    - Sample
+       ```
+         root = true
+         [*]
+         indent_style = space
+         indent_size = 2
+         charset = utf-8
+         trim_trailing_whitespace = false
+         insert_final_newline = true
+       ```
+
 ## Useful libraries
 * nodemon
   - Restart application as file changes
