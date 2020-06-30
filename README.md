@@ -1,5 +1,5 @@
 # NODE.JS LEARNINGS
-Learnings and sample applications on nodejs
+Learnings and sample applications on nodejs. Repository is being tried to built on [The Twelve-Factor App methodology](https://12factor.net/).
 
 # Developement environment configuration
  * [EditorConfig](https://editorconfig.org/)  
@@ -30,6 +30,9 @@ Learnings and sample applications on nodejs
   - Produces boilerplate code for an application
   - npm install express-generator -g
   - express <project_name>
+* dotenv
+  - npm install dotenv
+  - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
 ## Node Package Manager or NPM
    Top NPM commands
 
