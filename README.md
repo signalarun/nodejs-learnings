@@ -14,8 +14,8 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
          trim_trailing_whitespace = false
          insert_final_newline = true
        ```
-   * [npm semver calculator](https://semver.npmjs.com/)
-     - Useful to know the semantic version of NPM packages and there by configure your package.json.
+ * [npm semver calculator](https://semver.npmjs.com/)
+    - Useful to know the semantic version of NPM packages and there by configure your package.json.
 
 ## Useful libraries
 * nodemon
