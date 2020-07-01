@@ -1,6 +1,9 @@
 # NODE.JS LEARNINGS
 Learnings and sample applications on nodejs. Repository is being tried to, build on [The Twelve-Factor App methodology](https://12factor.net/).
 
+## Some Architectural perspectives
+ * [Layered view example](https://softwareontheroad.com/ideal-nodejs-project-structure/)
+
 ## Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
     - “EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.”
