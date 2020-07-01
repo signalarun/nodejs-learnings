@@ -89,5 +89,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      - Application level middleware app.use
      - Router level middleware router.use     
        + Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of express.Router()
+   * [Serving static files in Express](https://expressjs.com/en/starter/static-files.html)
+     - To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express     
 
 
