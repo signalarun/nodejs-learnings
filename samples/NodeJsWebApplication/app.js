@@ -24,8 +24,8 @@ app.use(logger('dev')); // Activates loging
 app.use(express.json()); // For analysing request data
 app.use(express.urlencoded({ extended: false })); // For analysing request data
 app.use(cookieParser());
-app.use(lessMiddleware(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(lessMiddleware(path.join(__dirname, 'public'))); 
+app.use(express.static(path.join(__dirname, 'public'))); // Setting up public directories
 
 /*
 Middleware to print requests
