@@ -3,6 +3,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 
 ## Some Architectural perspectives
  * [Layered view example](https://softwareontheroad.com/ideal-nodejs-project-structure/)
+   - This discusses about driving control flow along layers namely Controller-Service-DataAccess layers. Its identical to Spring Boot controll flows
 
 ## Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
