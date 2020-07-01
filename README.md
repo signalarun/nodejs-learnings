@@ -4,7 +4,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 ## Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
     - “EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.”
-    - Sample
+    - Create .editconfig file in your root. Sample
        ```
          root = true
          [*]
