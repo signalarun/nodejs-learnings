@@ -1,3 +1,6 @@
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var createError = require('http-errors');
 // Web framework
 var express = require('express');
@@ -11,6 +14,7 @@ var layouts = require('express-ejs-layouts');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var departmentsRouter = require('./routes/departments');
+var authenticationRouter = require('./routes/authentication.js');
 
 var app = express();
 
@@ -38,6 +42,7 @@ app.use((req, res, next)=>{
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/departments', departmentsRouter);
+app.use('/account/authentication', authenticationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
