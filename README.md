@@ -88,6 +88,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      - End the request-response cycle.
      - Call the next middleware function in the stack.
      - ![next](/assets/next.png)
+   * [https://medium.com/@jamischarles/what-is-middleware-a-simple-explanation-bb22d6b41d01](https://medium.com/@jamischarles/what-is-middleware-a-simple-explanation-bb22d6b41d01)
    * Express has the following built-in middleware functions:
      - express.static serves static assets such as HTML files, images, and so on.
      - express.json parses incoming requests with JSON payloads. NOTE: Available with Express 4.16.0+
