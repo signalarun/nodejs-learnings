@@ -96,6 +96,14 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      - Router level middleware router.use     
        + Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of express.Router()
    * [Serving static files in Express](https://expressjs.com/en/starter/static-files.html)
-     - To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express     
+     - To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express  
+## Exports and Imports
+   * When to use module.exports vs exports:
+     - Use exports to:
+       + Export named function. e.g. exports.area, exports.circumference.
+     - Use module.exports to:
+       + If you want to export an object, class, function at the root level (e.g. module.exports = Cat)
+       + If you prefer to return a single object that exposes multiple assignments. e.g.module.exports = {area, circumference};
+ 
 
 
