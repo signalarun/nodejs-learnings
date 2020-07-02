@@ -44,6 +44,8 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 * dotenv
   - npm install dotenv
   - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
+* express-validator
+  - It is a set of express.js middlewares that wraps validator.js validator and sanitizer functions.
 ## Node Package Manager or NPM
    Top NPM commands
 
