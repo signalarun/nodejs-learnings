@@ -21,7 +21,7 @@ router.get('/v1/login', function (req, res, next) {
 // Handles login request
 router.post('/v1/login',
   passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
+                                   failureRedirect: '/api/account/authentication/v1/login',
                                    failureFlash: true })
 );
 
