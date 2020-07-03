@@ -2,6 +2,7 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var createError = require('http-errors');
+var flash = require('connct-flash');
 // Web framework
 var express = require('express');
 var path = require('path');
@@ -78,6 +79,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // Setting up public di
 
 // TODO remove if session not required
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(flash());
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize());
