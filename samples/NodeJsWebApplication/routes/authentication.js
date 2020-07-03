@@ -13,12 +13,11 @@ var router = express.Router();
  * TODO Logout
  */
 
-router.get('/login', function (req, res, next) {
+router.get('/v1/login', function (req, res, next) {
   res.send('About this user');
 });
 
-
-router.get('/logout', function (req, res, next) {
+router.get('/v1/logout', function (req, res, next) {
   res.send('About this user');
 });
 

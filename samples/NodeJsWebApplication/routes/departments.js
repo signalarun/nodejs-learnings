@@ -8,16 +8,16 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/name', function(req, res, next) {
+router.get('/v1/name', function(req, res, next) {
   res.send('Name of department'); 
 });
 
-router.get('/about', function (req, res, next) {
+router.get('/v1/about', function (req, res, next) {
   res.send('About this department');
 });
 
 // Passing parameters
-router.get('/reflect/:data', function (req, res, next) {
+router.get('/v1/reflect/:data', function (req, res, next) {
   let data = req.params.data;
   res.send(`Reflected value is - ${data}`);
 });
