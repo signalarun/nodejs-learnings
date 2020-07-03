@@ -11,7 +11,8 @@ var logger = require('morgan');
 // Templating engine requirement
 var layouts = require('express-ejs-layouts');
 
-var apiRouter = require('./routes/api');
+var indexRouter = require('./routes/index');
+var apiRouter   = require('./routes/api');
 
 
 var app = express();
@@ -37,6 +38,7 @@ app.use((req, res, next)=>{
 });
 */
 
+app.use('/', indexRouter);
 // App APIS are available here
 app.use('/api', apiRouter);
 
