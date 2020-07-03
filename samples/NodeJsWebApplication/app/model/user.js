@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import { db } from './connect';
+//import { db } from './connect';
 
 var users = [
     { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
