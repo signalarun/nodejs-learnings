@@ -52,10 +52,10 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 * [passport](http://www.passportjs.org/)
   - Express lacks itsown authentication libraries, here comes the handy 'passport' library
     + passport-local
-      - [username password](http://www.passportjs.org/docs/username-password/)  
+      * [username password](http://www.passportjs.org/docs/username-password/)  
         The most widely used way for websites to authenticate users is via a username and password. Support for this mechanism is provided by the passport-local 
         module.       
-      - [https://github.com/jaredhanson/passport-local](https://github.com/jaredhanson/passport-local)
+      * [https://github.com/jaredhanson/passport-local](https://github.com/jaredhanson/passport-local)
     + [https://github.com/passport/express-3.x-http-digest-example](https://github.com/passport/express-3.x-http-digest-example)
     + [https://github.com/passport/express-3.x-http-basic-example](https://github.com/passport/express-3.x-http-basic-example)
 ## Node Package Manager or NPM
