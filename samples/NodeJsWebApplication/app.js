@@ -2,7 +2,7 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var createError = require('http-errors');
-var flash = require('connct-flash');
+var flash = require('connect-flash');
 // Web framework
 var express = require('express');
 var path = require('path');
@@ -60,7 +60,6 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });  
-
 
 var app = express();
 
