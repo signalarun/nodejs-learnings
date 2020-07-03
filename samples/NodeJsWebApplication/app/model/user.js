@@ -9,6 +9,7 @@
 var users = [
     { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
   , { id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }
+  , { id: 3, username: 'aryastark@gmail.com', password: 'password', email: 'aryastark@gmail.com' }
 ];
 
 exports.findById = function(id, fn) {
