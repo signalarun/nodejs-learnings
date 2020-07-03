@@ -11,10 +11,8 @@ var logger = require('morgan');
 // Templating engine requirement
 var layouts = require('express-ejs-layouts');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var departmentsRouter = require('./routes/departments');
-var authenticationRouter = require('./routes/authentication.js');
+var apiRouter = require('./routes/api');
+
 
 var app = express();
 
@@ -39,10 +37,8 @@ app.use((req, res, next)=>{
 });
 */
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/departments', departmentsRouter);
-app.use('/account/authentication', authenticationRouter);
+// App APIS are available here
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,6 +56,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;
