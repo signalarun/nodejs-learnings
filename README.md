@@ -49,6 +49,15 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 * connect-flash
   - The flash is a special area of the session used for storing messages. Messages are written to the flash and cleared after being displayed to the user. The flash 
     is typically used in combination with redirects, ensuring that the message is available to the next page that is to be rendered.
+* [passport](http://www.passportjs.org/)
+  - Express lacks itsown authentication libraries, here comes the handy 'passport' library
+    + passport-local
+      * [username password](http://www.passportjs.org/docs/username-password/)  
+        The most widely used way for websites to authenticate users is via a username and password. Support for this mechanism is provided by the passport-local 
+        module.       
+      * [https://github.com/jaredhanson/passport-local](https://github.com/jaredhanson/passport-local)
+    + [https://github.com/passport/express-3.x-http-digest-example](https://github.com/passport/express-3.x-http-digest-example)
+    + [https://github.com/passport/express-3.x-http-basic-example](https://github.com/passport/express-3.x-http-basic-example)
 ## Node Package Manager or NPM
    Top NPM commands
 
