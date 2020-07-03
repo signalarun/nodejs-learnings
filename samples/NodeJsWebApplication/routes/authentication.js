@@ -5,6 +5,7 @@
  */
 
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 
 /*
@@ -12,10 +13,17 @@ var router = express.Router();
  * TODO Login
  * TODO Logout
  */
-
+// Serves login page
 router.get('/v1/login', function (req, res, next) {
-  res.send('About this user');
+  res.render('login', { title: 'Express' });
 });
+
+// Handles login request
+router.post('/v1/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
 
 router.get('/v1/logout', function (req, res, next) {
   res.send('About this user');

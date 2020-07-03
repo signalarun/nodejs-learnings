@@ -6,14 +6,12 @@
 
 
 var express = require('express');
-var indexRouter = require('./index');
 var usersRouter = require('./users');
 var departmentsRouter = require('./departments');
 var authenticationRouter = require('./authentication');
 
 var app = express();
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/departments', departmentsRouter);
 app.use('/account/authentication', authenticationRouter);
