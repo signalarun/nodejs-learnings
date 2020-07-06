@@ -15,7 +15,7 @@ var router = express.Router();
  */
 // Serves login page
 router.get('/v1/login', function (req, res, next) {
-  res.render('login', { title: 'Express' });
+  res.render('login', { title: 'Login' });
 });
 
 // Handles login request
@@ -26,7 +26,8 @@ router.post('/v1/login',
 );
 
 router.get('/v1/logout', function (req, res, next) {
-  res.send('About this user');
+  req.logOut();
+  res.redirect('/v1/login');
 });
 
 module.exports = router;
