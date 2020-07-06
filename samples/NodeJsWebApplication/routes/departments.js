@@ -8,7 +8,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/v1/name', function(req, res, next) {
+router.get('/v1/name', require('connect-ensure-login').ensureLoggedIn('/api/account/authentication/v1/login'), function(req, res, next) {
   res.send('Name of department'); 
 });
 

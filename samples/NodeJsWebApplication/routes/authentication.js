@@ -27,7 +27,7 @@ router.post('/v1/login',
 
 router.get('/v1/logout', function (req, res, next) {
   req.logOut();
-  res.redirect('/v1/login');
+  res.redirect('/api/account/authentication/v1/login');
 });
 
 module.exports = router;
