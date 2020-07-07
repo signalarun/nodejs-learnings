@@ -92,6 +92,7 @@ app.use((req, res, next)=>{
 });
 */
 
+// ROUTES
 app.use('/', indexRouter);
 // App APIS are available here
 app.use('/api', apiRouter);
