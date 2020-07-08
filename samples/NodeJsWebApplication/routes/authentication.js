@@ -15,7 +15,7 @@ var router = express.Router();
  */
 // Serves login page
 router.get('/v1/login', function (req, res, next) {
-  res.render('login', { title: 'Login' });
+  res.render('login', { title: 'Login', messages: req.flash('message')}); // authentication failure messsage
 });
 
 // Handles login request
