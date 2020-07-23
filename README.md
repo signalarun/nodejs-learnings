@@ -6,6 +6,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
    - This discusses about driving control flow along layers namely Controller-Service-DataAccess layers. Its identical to Spring Boot controll flows
 ## Coding convention
  * [Javascript style guide by Google](https://google.github.io/styleguide/jsguide.html)
+ * Linter
+   - A tool that can be used to enforce the coding conventions.ESLint is an opensource linter for Javascript.ESLint documents your rules inside a configuration file
+     named .eslintrc. Developers could also customize the rules.
 
 ## Developement environment configuration and tools
  * [EditorConfig](https://editorconfig.org/)  
