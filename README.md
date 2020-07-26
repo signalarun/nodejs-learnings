@@ -44,6 +44,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
   - Produces boilerplate code for an application
   - npm install express-generator -g
   - express <project_name>
+    - express <project_name> -e --ejs // for generation with ejs engine
 * dotenv
   - npm install dotenv
   - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
