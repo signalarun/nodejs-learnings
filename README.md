@@ -72,8 +72,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
  * Advanced
     - PM2
     - [get-port](https://www.npmjs.com/package/get-port)
-    - [Helmet](https://www.npmjs.com/package/helmet)
-       Helmet helps you secure your Express apps by setting various HTTP headers appropriately.
+    - [Helmet](https://www.npmjs.com/package/helmet) helps you secure your Express apps by setting various HTTP headers appropriately.
        + csp sets the Content-Security-Policy header to help prevent cross-site scripting attacks and other cross-site injections.
        + hidePoweredBy removes the X-Powered-By header.
        + hsts sets Strict-Transport-Security header that enforces secure (HTTP over SSL/TLS) connections to the server.
