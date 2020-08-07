@@ -98,6 +98,8 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
        app.use(helmet.referrerPolicy());
        app.use(helmet.xssFilter());
        ```
+    - [SCMP](https://github.com/freewil/scmp)
+       Safe, constant-time comparison of Buffers.Helps to minimize [timing attacks](https://codahale.com/a-lesson-in-timing-attacks/).
               
 ## Node Package Manager or NPM
    Top NPM commands
