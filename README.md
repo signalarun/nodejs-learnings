@@ -72,6 +72,8 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
  * [Chance](https://www.npmjs.com/package/chance)
    - Chance is a minimalist generator of random strings, numbers, etc. to help reduce some monotony particularly while writing automated tests or anywhere else
      you need anything random.
+ * [Chalk](https://www.npmjs.com/package/chalk)
+   - Helps to style Console string
  * Advanced
     - PM2
     - [get-port](https://www.npmjs.com/package/get-port)
