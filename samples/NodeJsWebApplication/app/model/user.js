@@ -6,11 +6,26 @@
 
 //import { db } from './connect';
 
+const passwordUtil = require('../../config/passport');
+
 var users = [
     { id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }
   , { id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }
   , { id: 3, username: 'aryastark@gmail.com', password: 'password', email: 'aryastark@gmail.com' }
 ];
+
+/*
+const dUsers = {
+    josh :{
+        salt: 'G81lJERghovMoUX5+RoasvwT7evsK1QTL33jc5pjG0w=',
+        password: 'DAq+sDiEbIR0fHnbzgKQCOJ9siV5CL6FmXKAI6mX7UY=',
+        work: 5000,
+        displayName: 'Josh',
+        id: 'josh',
+        provider: 'local',
+        username: 'josh'    
+    }
+};*/
 
 exports.findById = function(id, fn) {
   var idx = id - 1;
@@ -29,4 +44,12 @@ exports.findByUsername = function(username, fn) {
     }
   }
   return fn(null, null);
+};
+
+exports.addUser = function(username, password, work, cb){
+    // TODO addUser
+};
+
+exports.updatePassword = function(username, password){
+    // TODO updatePassword
 };
