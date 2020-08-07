@@ -69,6 +69,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
  * [connect-ensure-login](https://www.npmjs.com/package/connect-ensure-login) 
       - This middleware ensures that a user is logged in. If a request is received that is unauthenticated, the request will be redirected to a login page.  
         The URL will  be saved in the session, so the user can be conveniently returned to the page that was originally requested.
+ * [Chance](https://www.npmjs.com/package/chance)
+   - Chance is a minimalist generator of random [1] strings, numbers, etc. to help reduce some monotony particularly while writing automated tests or anywhere else
+     you need anything random.
  * Advanced
     - PM2
     - [get-port](https://www.npmjs.com/package/get-port)
