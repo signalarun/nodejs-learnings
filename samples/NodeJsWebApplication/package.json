@@ -15,6 +15,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "express-validator": "^6.6.0",
+    "helmet": "4.0.0",
     "http-errors": "^1.6.3",
     "less-middleware": "^3.1.0",
     "mongoose": "^5.9.21",
