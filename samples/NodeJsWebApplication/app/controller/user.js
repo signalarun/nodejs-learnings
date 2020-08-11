@@ -13,3 +13,7 @@ exports.findById = function(id, fn) {
 exports.findByUsername = function(username, fn) {
   mUser.findByUsername(username, fn);  
 };
+
+exports.addUser = function (username, password, work, cb){
+    mUser.addUser(username, password, work, cb);
+};
