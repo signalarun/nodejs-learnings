@@ -13,7 +13,7 @@ var scmp = require('scmp');
  * which is a function that will create a derived key based on salt, our password, and a work factor. 
  * We then return salt and the derived key back so that we can persist it.
  */
-var encryptPassword = function passwordCreate(password, cb){
+var encryptPassword = function(password, cb){
   crypto.randomBytes(process.env.CRYPTO_RANDOMSIZE, function(err, salt){
     if (err)
       return cb(err, null);
@@ -23,9 +23,14 @@ var encryptPassword = function passwordCreate(password, cb){
     });
 };
 
-var validatePassword = function passwordCheck(password, derivedPassword, salt, work, cb){
-    crypto.pbkdf2(password, salt, work, process.env.CRYPTO_KEYLEN, function(err, key){
-        cb(null, scmp(key.toString('base64'), derivedPassword));
+var validatePassword = function(password, derivedPassword, salt, work, cb){
+    
+    crypto.pbkdf2(password, salt, work, Number(process.env.CRYPTO_KEYLEN), 'sha1', function(err, key){
+        
+        const keyBuff      = Buffer.from(key.toString('base64'), 'hex');
+        const derivedPasswordBuff = Buffer.from(derivedPassword, 'hex');
+        console.log(key, " " + keyBuff + " "+derivedPassword);
+        cb(null, scmp(keyBuff, derivedPasswordBuff));
     });
 };
 
