@@ -6,6 +6,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 const user = require('../app/controller/user');
+const passwordUtil = require('./password');
 
 /*
  In a typical web application, the credentials used to authenticate a user will
@@ -27,7 +28,7 @@ passport.deserializeUser(function(id, done) {
 }); 
 
 /* Authentication */
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
         function (username, password, done) {
             // asynchronous verification, for effect...
             process.nextTick(function () {
@@ -51,6 +52,35 @@ passport.use(new LocalStrategy(
             });
         }
 ));
+
+*/
+
+/* Authentication */
+passport.use(new LocalStrategy(function(username, password, done){
+  user.findByUsername(username, function(err, profile){
+    if(profile){
+      passwordUtil.validatePassword(password, profile.password, profile.salt, profile.work, function(err, isAuth){
+          
+        if(err){
+            return done(err);
+        }
+        if(isAuth){
+          if (profile.work < process.env.CRYPTO_WORKFACTOR)
+          {
+            user.updatePassword(username, password, process.env.CRYPTO_WORKFACTOR);
+          }
+          return done(null, profile);
+        }
+        else{
+          return done(null, false, {message: 'Wrong Username or Password'});
+        }
+      });
+    }
+    else{
+      return done(null, false, {message: 'Wrong Username or Password'});
+    }
+  });
+}));
 
 exports.passport = passport;
 
