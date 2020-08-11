@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+const user = require('../app/controller/user');
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -28,6 +29,20 @@ router.post('/v1/login',
 router.get('/v1/logout', function (req, res, next) {
   req.logOut();
   res.redirect('/api/account/authentication/v1/login');
+});
+
+router.post('/v1/register', function (req, res, next) {
+ 
+  user.addUser();//(username, password, work, cb)
+  req.logOut();
+  res.redirect('/api/account/authentication/v1/login');
+});
+
+/**
+ * Gets registeration page
+ */
+router.get('/v1/register', function (req, res, next) {
+  res.render('register', { title: 'Register' });
 });
 
 module.exports = router;
