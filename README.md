@@ -4,6 +4,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 ## Some Architectural perspectives
  * [Layered view example](https://softwareontheroad.com/ideal-nodejs-project-structure/)
    - This discusses about driving control flow along layers namely Controller-Service-DataAccess layers. Its identical to Spring Boot controll flows
+ * [https://mdn.mozillademos.org/files/14456/MVC%20Express.png](https://mdn.mozillademos.org/files/14456/MVC%20Express.png)
 ## Coding convention
  * [Javascript style guide by Google](https://google.github.io/styleguide/jsguide.html)
  * Linter
@@ -52,8 +53,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 * dotenv
   - npm install dotenv
   - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
-* express-validator
+* express-validator [NPM](https://www.npmjs.com/package/express-validator) [Github](https://express-validator.github.io/docs/)
   - It is a set of express.js middlewares that wraps validator.js validator and sanitizer functions.
+  - https://flaviocopes.com/express-validate-input/
 * connect-flash
   - The flash is a special area of the session used for storing messages. Messages are written to the flash and cleared after being displayed to the user. The flash 
     is typically used in combination with redirects, ensuring that the message is available to the next page that is to be rendered.
