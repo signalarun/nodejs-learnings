@@ -31,11 +31,11 @@ router.get('/v1/logout', function (req, res, next) {
   res.redirect('/api/account/authentication/v1/login');
 });
 
-router.post('/v1/register', function (req, res) {
+router.post('/v1/register', user.validate('addUser'), function (req, res, next) {
   if(req.user){
        res.redirect('/');
   }else{
-    user.addUser(req, res);//(username, password, work, cb)    
+    user.addUser(req, res, next);//(username, password, work, cb)    
   } 
   
 });
