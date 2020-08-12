@@ -14,7 +14,7 @@ exports.findByUsername = function (username, fn) {
     mUser.findByUsername(username, fn);
 };
 
-exports.addUser = function (req, res) {
+exports.addUser = function (req, res, next) {
     try {
         // Finds the validation errors in this request and wraps them in an object with handy functions 
         const errors = validationResult(req);
@@ -24,7 +24,7 @@ exports.addUser = function (req, res) {
         }
 
         const {firstName, lastName, userName, repeatPassword} = req.body;
-        mUser.addUser(firstName, lastName, userName, repeatPassword, process.env.CRYPTO_WORKFACTOR, function (err, profile) {
+        mUser.addUser(firstName, lastName, userName, repeatPassword, Number(process.env.CRYPTO_WORKFACTOR), function (err, profile) {
             if (err) {
                 req.flash('error', err);
                 res.redirect('/api/account/authentication/v1/register');
@@ -42,7 +42,7 @@ exports.validate = (method) => {
         case 'addUser':
         {
             return [
-                check('username').exists().isLength({min: 5})
+                check('userName').exists().isLength({min: 5})
                         .trim().escape()
                         .withMessage('Name must have more than 5 characters'),
                 check('firstName', 'First name not found').exists(),

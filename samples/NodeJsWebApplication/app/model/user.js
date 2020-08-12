@@ -6,7 +6,7 @@
 
 //import { db } from './connect';
 
-const passwordUtil = require('../../config/passport');
+const passwordUtil = require('../../config/password');
 
 /*var users = [
  {id: 1, username: 'bob', password: 'secret', email: 'bob@example.com'}
@@ -27,14 +27,14 @@ const users = {
 };
 
 /*
-exports.findById = function (id, fn) {
-    var idx = id - 1;
-    if (users[idx]) {
-        fn(null, users[idx]);
-    } else {
-        fn(new Error('User ' + id + ' does not exist'));
-    }
-};*/
+ exports.findById = function (id, fn) {
+ var idx = id - 1;
+ if (users[idx]) {
+ fn(null, users[idx]);
+ } else {
+ fn(new Error('User ' + id + ' does not exist'));
+ }
+ };*/
 
 exports.findById = function (id, cb) {
 
@@ -42,20 +42,20 @@ exports.findById = function (id, cb) {
         cb(null, users[id]);
     } else {
         cb(new Error('User : ' + id + ' does not exist'));
-    } 
+    }
 };
 
 /*
-exports.findByUsername = function (username, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-        var user = users[i];
-        if (user.username === username) {
-            return fn(null, user);
-        }
-    }
-    return fn(null, null);
-};
-*/
+ exports.findByUsername = function (username, fn) {
+ for (var i = 0, len = users.length; i < len; i++) {
+ var user = users[i];
+ if (user.username === username) {
+ return fn(null, user);
+ }
+ }
+ return fn(null, null);
+ };
+ */
 
 exports.findByUsername = function (username, cb) {
     if (users[username]) {
@@ -84,8 +84,34 @@ exports.addUser = function (username, password, work, cb) {
     }
 };
 
+exports.addUser = function (firstName, lastName, userName, password, work, cb) {
+    if (users[userName] === undefined) {
+        passwordUtil.encryptPassword(password, function (err, salt, password) {
+            if (err) {
+                return cb({errorCode: 500, message: 'Something went wrong, retry'}, 'Something went wrong, retry', null);
+            }
+            users[userName] = {
+                salt: salt,
+                password: password,
+                work: work,
+                firstName: firstName,
+                lastName: lastName,
+                displayName: userName,
+                id: userName,
+                provider: 'local',
+                username: userName
+            };
+            
+            return cb(null, users[userName]);
+        });
+    } else {
+        console.log("User exists");
+        return cb({errorCode: 1, message: 'User exists!'}, 'User exists!', null);
+    }
+};
+
 exports.updatePassword = function (username, password, work) {
-    passwordUtil.passwordCreate(password, function (err, salt, password) {
+    passwordUtil.encryptPassword(password, function (err, salt, password) {
         users[username].salt = salt;
         users[username].password = password;
         users[username].work = work;
