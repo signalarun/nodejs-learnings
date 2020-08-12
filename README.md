@@ -4,6 +4,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 ## Some Architectural perspectives
  * [Layered view example](https://softwareontheroad.com/ideal-nodejs-project-structure/)
    - This discusses about driving control flow along layers namely Controller-Service-DataAccess layers. Its identical to Spring Boot controll flows
+ * [https://mdn.mozillademos.org/files/14456/MVC%20Express.png](https://mdn.mozillademos.org/files/14456/MVC%20Express.png)
 ## Coding convention
  * [Javascript style guide by Google](https://google.github.io/styleguide/jsguide.html)
  * Linter
