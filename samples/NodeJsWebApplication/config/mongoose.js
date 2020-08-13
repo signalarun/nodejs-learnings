@@ -16,7 +16,7 @@ class Database {
     }
 
     _connect() {
-        mongoose.connect(process.env.MONGODB_CONNECT)
+        mongoose.connect(process.env.DB_CONFIG_MONGODB)
                 .then(() => {
                     console.log('Database connection successful');
                 })
