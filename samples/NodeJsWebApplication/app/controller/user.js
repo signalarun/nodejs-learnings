@@ -5,13 +5,14 @@
  */
 const {check, validationResult} = require('express-validator');
 var mUser = require('../model/user');
+var account = require('../service/account');
 
 exports.findById = function (id, fn) {
-    mUser.findById(id, fn);
+    account.findById(id, fn);
 };
 
 exports.findByUsername = function (username, fn) {
-    mUser.findByUsername(username, fn);
+    account.findByUsername(username, fn);
 };
 
 exports.addUser = function (req, res, next) {
@@ -24,7 +25,7 @@ exports.addUser = function (req, res, next) {
         }
 
         const {firstName, lastName, userName, repeatPassword} = req.body;
-        mUser.addUser(firstName, lastName, userName, repeatPassword, Number(process.env.CRYPTO_WORKFACTOR), function (err, profile) {
+        account.addUser(firstName, lastName, userName, repeatPassword, Number(process.env.CRYPTO_WORKFACTOR), function (err, profile) {
             if (err) {
                 req.flash('error', err);
                 res.redirect('/api/account/authentication/v1/register');
