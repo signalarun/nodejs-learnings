@@ -16,7 +16,7 @@ class Database {
     }
 
     _connect() {
-        mongoose.connect(process.env.DB_CONFIG_MONGODB)
+        mongoose.connect(process.env.DB_CONFIG_MONGODB, { useUnifiedTopology: true, useNewUrlParser: true})
                 .then(() => {
                     console.log('Database connection successful');
                 })
