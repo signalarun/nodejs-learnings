@@ -9,7 +9,7 @@ let mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
     salt: String,
     password: String,
-    work: String,
+    work: Number,
     firstName: String,
     lastName: String,
     displayName: String,
