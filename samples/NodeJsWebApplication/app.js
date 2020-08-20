@@ -1,4 +1,5 @@
 var passport = require('./config/passport');
+require('./config/mongoose');
 var createError = require('http-errors');
 var flash = require('connect-flash');
 // Web framework
