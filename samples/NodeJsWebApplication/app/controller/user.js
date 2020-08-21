@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 const {check, validationResult} = require('express-validator');
-var mUser = require('../model/user');
+//var mUser = require('../model/user');
 var account = require('../service/account');
 
 exports.findById = function (id, fn) {
