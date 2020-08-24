@@ -77,6 +77,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      you need anything random.
  * [Chalk](https://www.npmjs.com/package/chalk)
    - Helps to style Console string
+ * [Multer](https://www.npmjs.com/package/multer)
+   - Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files
+   - Supports only multipart form data
  * Advanced
     - PM2
     - [get-port](https://www.npmjs.com/package/get-port)
