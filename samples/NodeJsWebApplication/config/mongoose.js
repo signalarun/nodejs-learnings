@@ -9,6 +9,7 @@
  */
 
 let mongoose = require('mongoose');
+const chalk = require('chalk');
 
 class Database {
     constructor() {
@@ -18,10 +19,10 @@ class Database {
     _connect() {
         mongoose.connect(process.env.DB_CONFIG_MONGODB, { useUnifiedTopology: true, useNewUrlParser: true})
                 .then(() => {
-                    console.log('Database connection successful');
+                    console.log(chalk.green('Database connection successful'));
                 })
                 .catch(err => {
-                    console.error('Database connection error');
+                    console.error(chalk.red('Database connection error'));
                 });
     }
 }
