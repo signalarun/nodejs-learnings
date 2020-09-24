@@ -94,7 +94,8 @@ exports.findByUsername = function (username, cb) {
 };
 
 /**
- * Generates password reset link by registered email
+ * Generates password reset link by registered email, its by this link the user
+ * gets reset password form
  */
 exports.generatePasswordResetLink = async function (e_mail, cb) {
     console.log(e_mail);
@@ -152,3 +153,51 @@ exports.generatePasswordResetLink = async function (e_mail, cb) {
     return cb({status: 'ok'});
 };
 
+exports.generatePasswordResetForm = async function(email, token, cb){
+    /**
+   * This code clears all expired tokens. You
+   * should move this to a cronjob if you have a
+   * big site. We just include this in here as a
+   * demonstration.
+   **/
+  await resetTokenModel.deleteMany({
+      expiration: { $lte: new Date()}
+  }).exec();
+ 
+  //find the token
+  var record = await resetTokenModel.findOne({
+      email: email,
+      expiration: { $gte : new Date()},
+      token: token,
+      used: false
+  }).exec();
+  cb(record);
+};
+
+exports.resetPassword = async function (e_mail, token, password, cb) {
+
+    var record = await resetTokenModel.findOne({
+        email: e_mail,
+        expiration: {$gte: new Date()},
+        token: token,
+        used: 0
+    }).exec();
+
+    if (record === null) {
+        return cb({status: 'error', message: 'Token not found. Please try the reset password process again.'});
+    }
+
+    var upd = await resetTokenModel.update({used: true}, {email: e_mail});
+
+    passwordUtil.encryptPassword(password, function (err, nSalt, nPassword) {
+        if (err) {
+            return cb({errorCode: 500, message: 'Something went wrong, retry'}, 'Something went wrong, retry', null);
+        }
+
+        userModel.update({password: nPassword, salt: nSalt}, {username: e_mail}, function (error, result) {
+            cb({status: 'ok', message: 'Password reset. Please login with your new password.'});
+        });
+
+    });
+
+};
