@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 const passwordUtil = require('../../config/password');
+const mail = require('../../config/mail');
+const util = require('../../utils/utils');
+
 let userModel = require('../model/mongodb/user');
+let resetTokenModel = require('../model/mongodb/reset-token');
 
 
 exports.addUser = function (firstName, lastName, userName, password, work, cb) {
@@ -56,7 +60,7 @@ exports.findById = function (id, cb) {
         if (err) {
             return cb(new Error('User : ' + id + ' does not exist'));
         }
-        if(user){
+        if (user) {
             return cb(null, user);
         }
 
@@ -76,15 +80,75 @@ exports.findById = function (id, cb) {
  */
 
 exports.findByUsername = function (username, cb) {
-        userModel.findOne({username: username}, function (err, user) {
+    userModel.findOne({username: username}, function (err, user) {
         if (err) {
             return cb(new Error('User : ' + username + ' does not exist'));
         }
-        
-        if(user){
+
+        if (user) {
             return cb(null, user);
         }
 
     });
 
 };
+
+/**
+ * Generates password reset link by registered email
+ */
+exports.generatePasswordResetLink = async function (e_mail, cb) {
+    console.log(e_mail);
+    //ensure that you have a user with this email
+    var user = await userModel.findOne({username: e_mail}).exec(); 
+    if (user.username == null) {
+        /**
+         * we don't want to tell attackers that an
+         * email doesn't exist, because that will let
+         * them use this form to find ones that do
+         * exist.
+         **/
+        return cb({status: 'Email not found'});
+    }
+    /**
+     * Expire any tokens that were previously
+     * set for this user. That prevents old tokens
+     * from being used.
+     **/
+    await resetTokenModel.updateMany({ email: e_mail }, { used: true }).exec();
+    
+    //Create a random reset token
+    var token = util.generateRandomToken();
+    
+    //token expires after one hour
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate() + 1 / 24);
+    
+    //insert token data into DB
+    await resetTokenModel.create({
+        email: e_mail,
+        expiration: expireDate,
+        token: token,
+        used: false
+    });
+    
+    //create email
+    const message = {
+        from: process.env.SENDER_ADDRESS,
+        to: e_mail,
+        replyTo: process.env.REPLYTO_ADDRESS,
+        subject: process.env.FORGOT_PASS_SUBJECT_LINE,
+        text: 'To reset your password, please click the link below.\n\nhttps://' + process.env.DOMAIN + ':' + process.env.PORT + '/user/reset-password?token=' + encodeURIComponent(token) + '&email=' + e_mail
+    };
+
+    //send email
+    mail.sendMail(message, function (err, info) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(info);
+        }
+    });
+
+    return cb({status: 'ok'});
+};
+
