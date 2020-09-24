@@ -6,6 +6,7 @@
 
 const user = require('../app/controller/user');
 const forgotPassword  = require('../app/controller/forgot-password');
+const resetPassword  = require('../app/controller/reset-password');
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -63,11 +64,11 @@ router.post('/v1/forgot-password', forgotPassword.validate('generatePasswordRese
 });
 
 router.get('/v1/reset-password', function(req, res, next) {
-    res.json({status:'TODO'});
+    resetPassword.generatePasswordResetForm(req, res, next);
 });
 
-router.post('/v1/reset-password', function(req, res, next) {
-    res.json({status:'TODO'});
+router.post('/v1/reset-password', resetPassword.validate('resetPassword'), function(req, res, next) {
+    resetPassword.resetPassword(req, res, next);
 });
 
 
