@@ -5,6 +5,7 @@
  */
 
 const user = require('../app/controller/user');
+const forgotPassword  = require('../app/controller/forgot-password');
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -46,5 +47,28 @@ router.post('/v1/register', user.validate('addUser'), function (req, res, next) 
 router.get('/v1/register', function (req, res, next) {
   res.render('register', { title: 'Register' });
 });
+
+/**
+ * Gets forgot password page
+ */
+router.get('/v1/forgot-password', function (req, res, next) {
+  res.render('forgot-password', { title: 'Forgor Password' });
+});
+
+/**
+ * Sends reset pasword link to users registered email
+ */
+router.post('/v1/forgot-password', forgotPassword.validate('generatePasswordResetLink'), function(req, res, next) {
+    forgotPassword.generateResetPasswordLink(req, res, next);    
+});
+
+router.get('/v1/reset-password', function(req, res, next) {
+    res.json({status:'TODO'});
+});
+
+router.post('/v1/reset-password', function(req, res, next) {
+    res.json({status:'TODO'});
+});
+
 
 module.exports = router;
