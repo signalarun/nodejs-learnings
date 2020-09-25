@@ -99,8 +99,9 @@ exports.findByUsername = function (username, cb) {
  */
 exports.generatePasswordResetLink = async function (e_mail, cb) {
     console.log(e_mail);
+    // TODO verify username exists
     //ensure that you have a user with this email
-    var user = await userModel.findOne({username: e_mail}).exec(); 
+    var user = await userModel.findOne({'username' : e_mail}).exec(); 
     if (user.username == null) {
         /**
          * we don't want to tell attackers that an
@@ -115,21 +116,21 @@ exports.generatePasswordResetLink = async function (e_mail, cb) {
      * set for this user. That prevents old tokens
      * from being used.
      **/
-    await resetTokenModel.updateMany({ email: e_mail }, { used: true }).exec();
+    await resetTokenModel.updateMany({ 'email' : e_mail }, { used: true }).exec();
     
     //Create a random reset token
     var token = util.generateRandomToken();
     
     //token expires after one hour
-    var expireDate = new Date();
-    expireDate.setDate(expireDate.getDate() + 1 / 24);
+    var expireDate  = new Date();
+    expireDate .setHours(expireDate .getHours() + 4);
     
     //insert token data into DB
     await resetTokenModel.create({
-        email: e_mail,
-        expiration: expireDate,
-        token: token,
-        used: false
+        'email' : e_mail,
+        'expiration' : expireDate,
+        'token' : token,
+        'used' : false
     });
     
     //create email
@@ -138,7 +139,7 @@ exports.generatePasswordResetLink = async function (e_mail, cb) {
         to: e_mail,
         replyTo: process.env.REPLYTO_ADDRESS,
         subject: process.env.FORGOT_PASS_SUBJECT_LINE,
-        text: 'To reset your password, please click the link below.\n\nhttps://' + process.env.DOMAIN + ':' + process.env.PORT + '/user/reset-password?token=' + encodeURIComponent(token) + '&email=' + e_mail
+        text: 'To reset your password, please click the link below.\n\nhttp://' + process.env.DOMAIN + ':' + process.env.PORT + '/api/account/authentication/v1/reset-password?token=' + encodeURIComponent(token) + '&email=' + e_mail
     };
 
     //send email
@@ -161,15 +162,15 @@ exports.generatePasswordResetForm = async function(email, token, cb){
    * demonstration.
    **/
   await resetTokenModel.deleteMany({
-      expiration: { $lte: new Date()}
+      'expiration' : { $lte: new Date()}
   }).exec();
  
   //find the token
   var record = await resetTokenModel.findOne({
-      email: email,
-      expiration: { $gte : new Date()},
-      token: token,
-      used: false
+      'email' : email,
+      'expiration' : { $gte : new Date()},
+      'token' : token,
+      'used' : false
   }).exec();
   cb(record);
 };
@@ -177,25 +178,31 @@ exports.generatePasswordResetForm = async function(email, token, cb){
 exports.resetPassword = async function (e_mail, token, password, cb) {
 
     var record = await resetTokenModel.findOne({
-        email: e_mail,
-        expiration: {$gte: new Date()},
-        token: token,
-        used: 0
+        'email' : e_mail,
+        'expiration' : {$gte: new Date()},
+        'token' : token,
+        'used' : false
     }).exec();
 
     if (record === null) {
         return cb({status: 'error', message: 'Token not found. Please try the reset password process again.'});
     }
 
-    var upd = await resetTokenModel.update({used: true}, {email: e_mail});
+    var upd = await resetTokenModel.updateMany({'email': e_mail}, {$set : {'used': true}} );
 
     passwordUtil.encryptPassword(password, function (err, nSalt, nPassword) {
         if (err) {
-            return cb({errorCode: 500, message: 'Something went wrong, retry'}, 'Something went wrong, retry', null);
+            return cb({status: 'error', errorCode: 500, message: 'Something went wrong, retry'});
         }
 
-        userModel.update({password: nPassword, salt: nSalt}, {username: e_mail}, function (error, result) {
-            cb({status: 'ok', message: 'Password reset. Please login with your new password.'});
+        userModel.updateOne({'username': e_mail}, {$set : {'password': nPassword, 'salt': nSalt}}, function (error, result) {
+            
+            if(err){
+                console.log(err);
+                cb({status: 'error', errorCode: 500, message: 'Something went wrong, retry'});
+            }else{
+             cb({status: 'ok', message: 'Password reset. Please login with your new password.'});
+            }
         });
 
     });
