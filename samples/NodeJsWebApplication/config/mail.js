@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
     });
     module.exports = mail;
     
-    console.log(chalk.yellow('Using developemnt configuration for mail'));
+    console.log(chalk.yellow('Using development configuration for mail'));
 
 } else { // Indicates production environment
     // TODO configure mail for production environment here
