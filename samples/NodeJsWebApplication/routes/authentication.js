@@ -26,6 +26,7 @@ router.post('/v1/login',
   passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/api/account/authentication/v1/login',
                                    failureFlash: true })
+                                       // TODO reply without redirect or redirect showing cause of error
 );
 
 router.get('/v1/logout', function (req, res, next) {
