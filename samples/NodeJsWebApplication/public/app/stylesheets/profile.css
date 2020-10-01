@@ -1,0 +1,18 @@
+
+/* 
+    Created on : 1 Oct, 2020, 5:29:55 PM
+    Author     : Arun
+*/
+
+
+ .field {
+    
+    font-weight: 600;
+    width: 25%;
+    // text-align: center;
+}
+.value {
+    color: #666;
+    font-weight: 500;
+}
+
