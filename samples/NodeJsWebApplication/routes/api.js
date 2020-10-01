@@ -12,8 +12,8 @@ var authenticationRouter = require('./authentication');
 
 var app = express();
 
-app.use('/users', usersRouter);
 app.use('/departments', departmentsRouter);
+app.use('/account/user', usersRouter);
 app.use('/account/authentication', authenticationRouter);
 
 module.exports = app;
