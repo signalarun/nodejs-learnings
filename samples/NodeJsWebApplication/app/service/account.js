@@ -93,6 +93,16 @@ exports.findByUsername = function (username, cb) {
 
 };
 
+// TODO check async await usage
+exports.getUserProfile = async function(username){
+    let result;
+    try{
+     result = await userModel.findOne({username: username}).exec();
+    }catch(error){
+        throw error;
+    }
+};
+
 /**
  * Generates password reset link by registered email, its by this link the user
  * gets reset password form
