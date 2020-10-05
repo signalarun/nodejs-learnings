@@ -93,7 +93,6 @@ exports.findByUsername = function (username, cb) {
 
 };
 
-// TODO check async await usage
 exports.getUserProfile = async function(username){
     let result;
     try{
