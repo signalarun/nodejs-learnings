@@ -22,7 +22,7 @@ class Database {
                     console.log(chalk.green('Database connection successful'));
                 })
                 .catch(err => {
-                    console.error(chalk.red('Database connection error'));
+                    console.error(chalk.red('Database connection error, please check database server up'));
                 });
     }
 }
