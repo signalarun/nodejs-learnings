@@ -13,7 +13,7 @@ router.get('/v1/abouts', function (req, res, next) {
 });
 
 
-/* GET home page. */
+/* GET profile page. */
 router.get('/v1/profile', require('connect-ensure-login').ensureLoggedIn('/api/account/authentication/v1/login'), function(req, res, next) {
   
     let u = user.getUserProfile(req, res, next);
