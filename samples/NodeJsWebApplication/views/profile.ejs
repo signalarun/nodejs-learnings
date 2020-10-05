@@ -5,11 +5,14 @@
 
   <%- include('./partials/meta.ejs') %>
 
-  <title>Home <%= title %></title>
+  <title> <%= title %></title>
   
    <!-- Header -->
     <%- include('./partials/head.ejs') %>
     <!-- End of Header -->
+    
+  <!-- Custom styles for this template-->
+  <link href="/app/stylesheets/profile.css" rel="stylesheet">
 
 </head>
 
@@ -33,7 +36,18 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Profile Info</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row"> <div class="field">Name</div> <div id="name" class="value"><%= name %></div> </div>
+                    <div class="row"> <div class="field">Username</div> <div  id="username"  class="value"><%= userName %></div></div>
+                    <div class="row"> <div  class="field">Display Name</div> <div id="displayname" class="value"><%= displayName %></div></div>
+                </div>
+            </div>
+            
         </div>
         <!-- /.container-fluid -->
 

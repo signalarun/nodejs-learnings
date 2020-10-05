@@ -97,7 +97,9 @@ exports.findByUsername = function (username, cb) {
 exports.getUserProfile = async function(username){
     let result;
     try{
+      
      result = await userModel.findOne({username: username}).exec();
+     return result;
     }catch(error){
         throw error;
     }

@@ -38,6 +38,17 @@ exports.addUser = function (req, res, next) {
     }
 };
 
+exports.getUserProfile = function(req, res, next){
+    try{
+        let username = req.session.passport.user;
+        let result = account.getUserProfile(username);
+        return result;
+        
+    }catch (err){
+        next(err);
+    }
+};
+
 exports.validate = (method) => {
     switch (method) {
         case 'addUser':
