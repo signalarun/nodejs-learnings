@@ -111,6 +111,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
        ```
     - [SCMP](https://github.com/freewil/scmp)
        Safe, constant-time comparison of Buffers.Helps to minimize [timing attacks](https://codahale.com/a-lesson-in-timing-attacks/).
+       
+    - Analyse dependecies since that can lead to vulnarabilities
+      http://npm.broofa.com a site where you can upload a package.json file and get a visualization of the dependencies   
               
 ## Node Package Manager or NPM
    Top NPM commands
