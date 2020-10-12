@@ -1,5 +1,5 @@
 
-class ApiResponse {
+export class ApiResponse {
 
     /**
      * timestamp - The time that the errors were extracted
@@ -36,5 +36,3 @@ class ApiResponse {
     }
 
 }
-
-
