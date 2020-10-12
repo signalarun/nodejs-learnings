@@ -119,8 +119,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
       + Is the module from a trusted source?
       + Does it have a lot of sub-dependencies?
     - Performance optimization
-      + [Babel](https://babeljs.io/docs/en/) is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current
+      + [Babel](https://babeljs.io/docs/en/) is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in  current
         and older browsers or   environments.
+      + [Webpack](https://webpack.js.org/guides/getting-started/) is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset. 
 
               
 ## Node Package Manager or NPM
