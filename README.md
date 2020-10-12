@@ -113,7 +113,12 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
        Safe, constant-time comparison of Buffers.Helps to minimize [timing attacks](https://codahale.com/a-lesson-in-timing-attacks/).
        
     - Analyse dependecies since that can lead to vulnarabilities
-      http://npm.broofa.com a site where you can upload a package.json file and get a visualization of the dependencies   
+      http://npm.broofa.com a site where you can upload a package.json file and get a visualization of the dependencies
+      
+      + Does using a module hide significant complexity or save a significant amount of work?
+      + Is the module from a trusted source?
+      + Does it have a lot of sub-dependencies?
+
               
 ## Node Package Manager or NPM
    Top NPM commands
