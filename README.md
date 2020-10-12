@@ -118,6 +118,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
       + Does using a module hide significant complexity or save a significant amount of work?
       + Is the module from a trusted source?
       + Does it have a lot of sub-dependencies?
+    - Performance optimization
+      + [Babel](https://babeljs.io/docs/en/) is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current
+        and older browsers or   environments.
 
               
 ## Node Package Manager or NPM
