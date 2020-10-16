@@ -51,7 +51,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
   - npm install -g express-generator-api
   - express-api <project_name>
 * [module-generator](https://www.npmjs.com/package/module-generator)
-  - The generator script I use for fresh modules. Forked from hughsk. Feel free to fork for further customization.
+  - The generator script that can be used for fresh modules.
   - [How to create nodejs modules](https://www.digitalocean.com/community/tutorials/how-to-create-a-node-js-module)
 * dotenv
   - npm install dotenv
