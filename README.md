@@ -50,6 +50,9 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
   - Produces boilerplate code for api server
   - npm install -g express-generator-api
   - express-api <project_name>
+* [module-generator](https://www.npmjs.com/package/module-generator)
+  - The generator script I use for fresh modules. Forked from hughsk. Feel free to fork for further customization.
+  - [How to create nodejs modules](https://www.digitalocean.com/community/tutorials/how-to-create-a-node-js-module)
 * dotenv
   - npm install dotenv
   - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
