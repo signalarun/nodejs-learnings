@@ -1,0 +1,29 @@
+{
+  "name": "measures",
+  "version": "1.0.0",
+  "description": "Sample to learn about module creation",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Arun Gopi",
+    "email": "signalarun@gmail.com",
+    "url": "https://github.com/https://github.com/signalarun"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "module",
+    "creation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/https://github.com/signalarun/measures.git"
+  },
+  "homepage": "https://github.com/https://github.com/signalarun/measures",
+  "bugs": {
+    "url": "https://github.com/https://github.com/signalarun/measures/issues"
+  }
+}
