@@ -193,6 +193,11 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      - Use module.exports to:
        + If you want to export an object, class, function at the root level (e.g. module.exports = Cat)
        + If you prefer to return a single object that exposes multiple assignments. e.g.module.exports = {area, circumference};
+       
+## Tutorial
+   * Create a paginated API with Node.js (https://youtu.be/ZX3qt0UWifc)
+   
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/ZX3qt0UWifc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
  
 
 
