@@ -1,5 +1,5 @@
 
-export class ApiResponse {
+module.exports = class ApiResponse {
 
     /**
      * timestamp - The time that the errors were extracted
@@ -12,15 +12,19 @@ export class ApiResponse {
      * path - The URL path when the exception was raised
      * : Taken from Spring Boot DefaultErrorAttributes
      * 
-     * 
-     * @param {number} status - status code
-     * @param {string} error - The error reasonm
-     * @param {string} message - Application message
-     * @param {object} data - Data after execution
+     * @param {*} data 
+     * @param {*} status - status code
+     * @param {*} error - The error reason
+     * @param {*} message - Application message
      */
-    constructor(status, error = 'The error reason', message = 'App message', data) {
+    constructor(data, status, error = 'The error reason', message = 'App message') {
         this.timestamp = new Date(new Date().toUTCString()).getTime();
-        this.status = status;
+        if(typeof status === undefined){
+            throw 'Status cannot be undefined'
+        }else{
+            this.status = status;
+        }
+        
         this.messgae = message;
         this.data = data;
     }
@@ -35,4 +39,4 @@ export class ApiResponse {
         };
     }
 
-}
+};
