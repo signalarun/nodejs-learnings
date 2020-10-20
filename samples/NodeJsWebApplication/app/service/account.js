@@ -9,6 +9,7 @@ const util = require('../../utils/utils');
 
 let userModel = require('../model/mongodb/user');
 let resetTokenModel = require('../model/mongodb/reset-token');
+const { Result } = require('express-validator');
 
 
 exports.addUser = function (firstName, lastName, userName, password, work, cb) {
@@ -53,6 +54,17 @@ exports.addUser = function (firstName, lastName, userName, password, work, cb) {
 
 };
 
+/**
+ * Lists users
+ * @param {*} callback - Results available in this callback
+ * @param {*} query - paramenters to refine search
+ * @param {*} options - parameter defining number of results. default is {offset : 0, limit : 10}
+ */
+exports.listUser = function(callback, query = {}, options = {offset : 0, limit : 10} ){
+    userModel.paginate(query, options).then((result)=>{
+        callback(result);
+    });
+};
 
 exports.findById = function (id, cb) {
 

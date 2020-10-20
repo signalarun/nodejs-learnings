@@ -5,13 +5,12 @@ const user = require('../app/controller/user');
 
 /* GET users listing. */
 router.get('/v1/users', function(req, res, next) {
-  res.send('respond with a resource');
+  user.listUsers(req, res, next);
 });
 
 router.get('/v1/abouts', function (req, res, next) {
   res.send('About this user');
 });
-
 
 /* GET profile page. */
 router.get('/v1/profile', require('connect-ensure-login').ensureLoggedIn('/api/account/authentication/v1/login'), function(req, res, next) {

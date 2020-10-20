@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 const {check, validationResult} = require('express-validator');
+const { ReasonPhrases, StatusCodes, getReasonPhrase, getStatusCode} = require('http-status-codes');
 //var mUser = require('../model/user');
 var account = require('../service/account');
+var ApiResponse = require('../../utils/api-response');
 
 exports.findById = function (id, fn) {
     account.findById(id, fn);
@@ -13,6 +15,21 @@ exports.findById = function (id, fn) {
 
 exports.findByUsername = function (username, fn) {
     account.findByUsername(username, fn);
+};
+
+/**
+ * List users. 
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+exports.listUsers = function(req, res, next){
+    
+    let users = account.listUser(function(users){
+        res.status(StatusCodes.OK).json(new ApiResponse(users, StatusCodes.OK).build());
+    }, {}, {offset : req.query.offset, limit : req.query.limit, select : 'firstName lastName displayName provider sername'});
+    
 };
 
 exports.addUser = function (req, res, next) {
