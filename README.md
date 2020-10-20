@@ -196,6 +196,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 ## Session Management
    * [Express Session](https://flaviocopes.com/express-sessions/)
    * [Storing user sessions on server with Express](https://medium.com/javascript-in-plain-english/storing-user-sessions-on-the-server-with-express-session-422fe11bc500)
+   * [Everything you need to know about Node.js sessions](https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions)
        
 ## Tutorial
    * Create a paginated API with Node.js (https://youtu.be/ZX3qt0UWifc)
