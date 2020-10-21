@@ -193,6 +193,10 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
      - Use module.exports to:
        + If you want to export an object, class, function at the root level (e.g. module.exports = Cat)
        + If you prefer to return a single object that exposes multiple assignments. e.g.module.exports = {area, circumference};
+## Session Management
+   * [Express Session](https://flaviocopes.com/express-sessions/)
+   * [Storing user sessions on server with Express](https://medium.com/javascript-in-plain-english/storing-user-sessions-on-the-server-with-express-session-422fe11bc500)
+   * [Everything you need to know about Node.js sessions](https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions)
        
 ## Tutorial
    * Create a paginated API with Node.js (https://youtu.be/ZX3qt0UWifc)
