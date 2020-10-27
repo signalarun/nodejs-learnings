@@ -4,7 +4,7 @@ Learnings and sample applications on nodejs. Repository is being tried to, build
 ## Some Architectural perspectives
  * [Layered view example](https://softwareontheroad.com/ideal-nodejs-project-structure/)
    - This discusses about driving control flow along layers namely Controller-Service-DataAccess layers. Its identical to Spring Boot controll flows
- * ![MVC Express](https://mdn.mozillademos.org/files/14456/MVC%20Express.png)
+ * ![MVC Express](https://mdn.mozillademos.org/files/14456/MVC%20Express.png)  
  * https://blog.risingstack.com/building-an-api-gateway-using-nodejs/
  * https://blog.risingstack.com/node-js-project-structure-tutorial-node-js-at-scale/
 ## Coding convention
