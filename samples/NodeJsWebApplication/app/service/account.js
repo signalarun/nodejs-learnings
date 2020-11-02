@@ -9,6 +9,7 @@ const util = require('../../utils/utils');
 
 let userModel = require('../model/mongodb/user');
 let resetTokenModel = require('../model/mongodb/reset-token');
+let sessionModel = require('../model/mongodb/session');
 const { Result } = require('express-validator');
 
 
@@ -66,6 +67,19 @@ exports.listUser = function(callback, query = {}, options = {offset : 0, limit :
     });
 };
 
+/**
+ * Lists sessions
+ * note : should be previlaged
+ * @param {*} callback - Results available in this callback
+ * @param {*} query - paramenters to refine search
+ * @param {*} options - parameter defining number of results. default is {offset : 0, limit : 10}
+ */
+exports.listSession = function(callback, query = {}, options = {offset : 0, limit : 10} ){
+    sessionModel.paginate(query, options).then((result)=>{
+        callback(result);
+    });
+}
+
 exports.findById = function (id, cb) {
 
     userModel.findOne({id: id}, function (err, user) {
@@ -91,14 +105,18 @@ exports.findById = function (id, cb) {
  };
  */
 
-exports.findByUsername = function (username, cb) {
-    userModel.findOne({username: username}, function (err, user) {
+exports.findByUsername = function (userName, cb) {
+    userModel.findOne({username: userName}, function (err, user) {
         if (err) {
-            return cb(new Error('User : ' + username + ' does not exist'));
+            return cb(new Error('User : ' + userName + ' does not exist'), null);
         }
 
         if (user) {
             return cb(null, user);
+        }
+
+        if(err === null & user === null){
+            return cb(new Error('User : ' + userName + ' does not exist'), null);
         }
 
     });
