@@ -1,7 +1,7 @@
 "use strict"
 var mongoose = require('mongoose');
 
-var noteScheme = new mongoose.Schema({
+let noteSchema = new mongoose.Schema({
     pageNumber: Number,
     name: { type: String, trim: true },
 });

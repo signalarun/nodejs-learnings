@@ -1,6 +1,6 @@
 'use strict'
 var mongoose = require('mongoose');
-var Task = mongoose.model('Note');
+let Note = require('../model/note')
 
 exports.addNote = function (req, res) {
     try {
@@ -15,7 +15,7 @@ exports.addNote = function (req, res) {
 exports.listNote = function (req, res) {
     try {
         
-        res.json({["Hello world", "Hello world", "Hello world"]});
+        res.json("Hello world");
 
     } catch (err) {
         return next(err);
