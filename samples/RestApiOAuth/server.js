@@ -16,3 +16,4 @@ var route = require('./api/route/note');
 route(app);
 
 console.log("App started on port ", PORT);
+console.log("I am Waiting for requests..");
