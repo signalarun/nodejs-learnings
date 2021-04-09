@@ -1,6 +1,14 @@
 module.exports.oauthConfig = {
     Google: {
-        clientId: '',
+        clientID: '',
         clientSecret: ''
+    },
+    Facebook: {
+        appID: '',
+        appSecret: ''
+    },
+    Twitter: {
+        consumerKey: '',
+        consumerSecret: ''
     }
 };
