@@ -8,4 +8,5 @@
 2. [Express status monitor](https://github.com/RafalWilinski/express-status-monitor)  
      Realtime Monitoring solution for Node.js/Express.js apps 
      
-3. [Clinicjs](https://clinicjs.org/)     
+3. [Clinicjs](https://clinicjs.org/)
+     Clinic.js includes three tools to help diagnose and pinpoint performance issues in Node.js applications.      
