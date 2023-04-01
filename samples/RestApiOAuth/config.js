@@ -1,5 +1,5 @@
 module.exports.oauthConfig = {
-    Google: {
+    Google: { // can be obtained from https://console.cloud.google.com/apis/credentials/oauthclient
         clientID: '',
         clientSecret: ''
     },
